@@ -29,6 +29,18 @@ const Chat = ({username}) => {
         Socket.emit("message", username, message);
         setMessage("");
     }
+    /* function listUsers() {
+        for (let i = 0; i < messages.length; i++) {
+            if (messages[i][0] === "Admin") {
+                <div><i className="fas fa-user-shield"></i>{messages[i][0]}</div>
+            } else {
+                <div><i className="fas fa-user"></i>{messages[i][0]}</div>
+            }
+            
+        }
+        
+    } */
+    
     return (
         
         <div>
@@ -39,10 +51,12 @@ const Chat = ({username}) => {
                 </div>
                 <div className="card-body">
                     <div id="usernames">
-                    {messages.map((e, i) => <div key={i}><div><i className="fas fa-user"></i> {e.username}</div></div>)}
+                        {/* {listUsers()} */}
+                        {messages.map((e, i) => <div key={i}><div><i className="fas fa-user-shield"></i> {e.username}</div></div>)}   
                     </div>
-                </div>
+                </div>                
             </div>
+
             <div className="card col-md-6">
                 {messages.map((e, i) => <div key={i}><div>{e.username}</div><div>{e.message}</div></div>)}
                 <div ref={divRef}></div>
